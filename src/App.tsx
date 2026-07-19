@@ -1152,8 +1152,55 @@ export default function App() {
               </section>
 
               {/* HERO FEATURED PROPERTIES SECTION */}
-              <section className="bg-stone-200/40 border-y border-stone-300/60 py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+              <section className="relative overflow-hidden bg-stone-200/40 border-y border-stone-300/60 py-16">
+                {/* SVG Zellij Maroc pattern matching the requested style */}
+                <div className="absolute inset-0 pointer-events-none zellij-pattern-bg">
+                  <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="zellij-properties" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <rect width="120" height="120" fill="transparent" />
+                        {/* Moroccan Blue diagonals and grid lines */}
+                        <g stroke="#0066FF" strokeWidth="1.25" fill="none" opacity="0.85">
+                          <line x1="0" y1="0" x2="120" y2="120" />
+                          <line x1="120" y1="0" x2="0" y2="120" />
+                          <line x1="60" y1="0" x2="60" y2="120" />
+                          <line x1="0" y1="60" x2="120" y2="60" />
+                          <line x1="30" y1="0" x2="30" y2="120" />
+                          <line x1="90" y1="0" x2="90" y2="120" />
+                          <line x1="0" y1="30" x2="120" y2="30" />
+                          <line x1="0" y1="90" x2="120" y2="90" />
+                        </g>
+                        {/* Moroccan Copper intersecting lines */}
+                        <g stroke="#C05621" strokeWidth="1.25" fill="none" opacity="0.85">
+                          <line x1="30" y1="0" x2="0" y2="30" />
+                          <line x1="90" y1="0" x2="120" y2="30" />
+                          <line x1="0" y1="90" x2="30" y2="120" />
+                          <line x1="120" y1="90" x2="90" y2="120" />
+                          <line x1="60" y1="0" x2="0" y2="60" />
+                          <line x1="60" y1="0" x2="120" y2="60" />
+                          <line x1="0" y1="60" x2="60" y2="120" />
+                          <line x1="120" y1="60" x2="60" y2="120" />
+                        </g>
+                        {/* Moroccan Emerald Green stars */}
+                        <g stroke="#059669" strokeWidth="1.5" fill="none" opacity="0.9">
+                          <rect x="42.42" y="42.42" width="35.16" height="35.16" transform="rotate(45 60 60)" />
+                          <rect x="42.42" y="42.42" width="35.16" height="35.16" />
+                          <rect x="-17.58" y="-17.58" width="35.16" height="35.16" transform="rotate(45 0 0)" />
+                          <rect x="-17.58" y="-17.58" width="35.16" height="35.16" />
+                          <rect x="102.42" y="-17.58" width="35.16" height="35.16" transform="rotate(45 120 0)" />
+                          <rect x="102.42" y="-17.58" width="35.16" height="35.16" />
+                          <rect x="-17.58" y="102.42" width="35.16" height="35.16" transform="rotate(45 0 120)" />
+                          <rect x="-17.58" y="102.42" width="35.16" height="35.16" />
+                          <rect x="102.42" y="102.42" width="35.16" height="35.16" transform="rotate(45 120 120)" />
+                          <rect x="102.42" y="102.42" width="35.16" height="35.16" />
+                        </g>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#zellij-properties)" />
+                  </svg>
+                </div>
+
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                   <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>
                       <span className="text-[9px] font-bold text-bold-copper uppercase tracking-widest block font-sans">
@@ -1482,67 +1529,132 @@ export default function App() {
               </section>
 
               {/* DYNAMIC RECENT GUEST REVIEWS SECTION */}
-              <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-left">
-                    <div className="space-y-1">
-                      <span className="px-3 py-1 bg-bold-copper/10 border border-bold-copper/20 text-bold-copper rounded-full text-[10px] font-bold uppercase tracking-widest inline-block">
-                        {language === "fr" ? "Retours d'Expériences" : language === "en" ? "Guest Testimonials" : "آراء وتجارب"}
-                      </span>
-                      <h3 className="font-display font-black uppercase tracking-tighter text-2xl md:text-3xl text-bold-text">
-                        {language === "fr" ? "Ce que disent nos voyageurs" : language === "en" ? "What our guests are saying" : "ما يقوله نزلائنا"}
-                      </h3>
-                    </div>
-                  </div>
+              <section className="relative overflow-hidden bg-stone-50 border-y border-stone-200/50 py-16 md:py-24 my-6">
+                {/* SVG Zellij Maroc pattern matching the uploaded photo */}
+                <div className="absolute inset-0 pointer-events-none opacity-90">
+                  <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="zellij-guest-reviews" width="120" height="120" patternUnits="userSpaceOnUse">
+                        {/* Background */}
+                        <rect width="120" height="120" fill="transparent" />
+                        
+                        {/* Moroccan Blue diagonals and grid lines */}
+                        <g stroke="#0066FF" strokeWidth="1.25" fill="none" opacity="0.85">
+                          {/* Main grid diagonals */}
+                          <line x1="0" y1="0" x2="120" y2="120" />
+                          <line x1="120" y1="0" x2="0" y2="120" />
+                          
+                          {/* Grid horizontal / verticals */}
+                          <line x1="60" y1="0" x2="60" y2="120" />
+                          <line x1="0" y1="60" x2="120" y2="60" />
+                          
+                          <line x1="30" y1="0" x2="30" y2="120" />
+                          <line x1="90" y1="0" x2="90" y2="120" />
+                          <line x1="0" y1="30" x2="120" y2="30" />
+                          <line x1="0" y1="90" x2="120" y2="90" />
+                        </g>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {allReviews.slice(0, 3).map((rev) => (
-                      <div 
-                        key={rev.id} 
-                        className="bg-white p-6 rounded-3xl border border-stone-300/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all text-left space-y-4"
-                      >
-                        <div className="space-y-3">
-                          {/* Stars and date */}
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-0.5">
-                              {Array.from({ length: 5 }).map((_, i) => (
-                                <Star 
-                                  key={i} 
-                                  className={`w-3.5 h-3.5 ${i < Math.round(rev.rating) ? "fill-bold-copper text-bold-copper" : "text-stone-200"}`} 
-                                />
-                              ))}
-                            </div>
-                            <span className="text-[10px] font-mono text-stone-400">{rev.date}</span>
-                          </div>
+                        {/* Moroccan Copper intersecting lines */}
+                        <g stroke="#C05621" strokeWidth="1.25" fill="none" opacity="0.85">
+                          {/* Intersecting squares and octagons */}
+                          <line x1="30" y1="0" x2="0" y2="30" />
+                          <line x1="90" y1="0" x2="120" y2="30" />
+                          <line x1="0" y1="90" x2="30" y2="120" />
+                          <line x1="120" y1="90" x2="90" y2="120" />
+                          
+                          <line x1="60" y1="0" x2="0" y2="60" />
+                          <line x1="60" y1="0" x2="120" y2="60" />
+                          <line x1="0" y1="60" x2="60" y2="120" />
+                          <line x1="120" y1="60" x2="60" y2="120" />
+                        </g>
 
-                          {/* Comment */}
-                          <p className="text-stone-600 text-xs leading-relaxed italic">
-                            "{rev.comment[language] || rev.comment.fr}"
-                          </p>
-                        </div>
+                        {/* Moroccan Emerald Green stars */}
+                        <g stroke="#059669" strokeWidth="1.5" fill="none" opacity="0.9">
+                          {/* Center star (Square A + B at 60,60) */}
+                          <rect x="42.42" y="42.42" width="35.16" height="35.16" transform="rotate(45 60 60)" />
+                          <rect x="42.42" y="42.42" width="35.16" height="35.16" />
+                          
+                          {/* Corner stars (at 0,0 / 120,0 / 0,120 / 120,120) */}
+                          <rect x="-17.58" y="-17.58" width="35.16" height="35.16" transform="rotate(45 0 0)" />
+                          <rect x="-17.58" y="-17.58" width="35.16" height="35.16" />
+                          
+                          <rect x="102.42" y="-17.58" width="35.16" height="35.16" transform="rotate(45 120 0)" />
+                          <rect x="102.42" y="-17.58" width="35.16" height="35.16" />
+                          
+                          <rect x="-17.58" y="102.42" width="35.16" height="35.16" transform="rotate(45 0 120)" />
+                          <rect x="-17.58" y="102.42" width="35.16" height="35.16" />
+                          
+                          <rect x="102.42" y="102.42" width="35.16" height="35.16" transform="rotate(45 120 120)" />
+                          <rect x="102.42" y="102.42" width="35.16" height="35.16" />
+                        </g>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#zellij-guest-reviews)" />
+                  </svg>
+                </div>
 
-                        {/* Author and Property */}
-                        <div className="border-t border-stone-100 pt-3 flex items-center justify-between mt-auto">
-                          <div>
-                            <span className="text-xs font-bold text-bold-text block">{rev.author}</span>
-                            <button 
-                              onClick={() => { setSelectedProperty(rev.propertyObj); }}
-                              className="text-[10px] text-bold-copper font-bold hover:underline uppercase tracking-wider text-left block mt-0.5"
-                            >
-                              {rev.propertyName}
-                            </button>
-                          </div>
-                          <span className="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-xs font-bold text-stone-400 uppercase">
-                            {rev.author.charAt(0)}
-                          </span>
-                        </div>
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="space-y-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-left">
+                      <div className="space-y-1">
+                        <span className="px-3 py-1 bg-bold-copper/10 border border-bold-copper/20 text-bold-copper rounded-full text-[10px] font-bold uppercase tracking-widest inline-block">
+                          {language === "fr" ? "Retours d'Expériences" : language === "en" ? "Guest Testimonials" : "آراء وتجارب"}
+                        </span>
+                        <h3 className="font-display font-black uppercase tracking-tighter text-2xl md:text-3xl text-bold-text">
+                          {language === "fr" ? "Ce que disent nos voyageurs" : language === "en" ? "What our guests are saying" : "ما يقوله نزلائنا"}
+                        </h3>
                       </div>
-                    ))}
+                    </div>
+  
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {allReviews.slice(0, 3).map((rev) => (
+                        <div 
+                          key={rev.id} 
+                          className="bg-white/95 backdrop-blur-sm p-6 rounded-3xl border border-stone-300/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-all text-left space-y-4"
+                        >
+                          <div className="space-y-3">
+                            {/* Stars and date */}
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-0.5">
+                                {Array.from({ length: 5 }).map((_, i) => (
+                                  <Star 
+                                    key={i} 
+                                    className={`w-3.5 h-3.5 ${i < Math.round(rev.rating) ? "fill-bold-copper text-bold-copper" : "text-stone-200"}`} 
+                                  />
+                                ))}
+                              </div>
+                              <span className="text-[10px] font-mono text-stone-400">{rev.date}</span>
+                            </div>
+  
+                            {/* Comment */}
+                            <p className="text-stone-600 text-xs leading-relaxed italic">
+                              "{rev.comment[language] || rev.comment.fr}"
+                            </p>
+                          </div>
+  
+                          {/* Author and Property */}
+                          <div className="border-t border-stone-100 pt-3 flex items-center justify-between mt-auto">
+                            <div>
+                              <span className="text-xs font-bold text-bold-text block">{rev.author}</span>
+                              <button 
+                                onClick={() => { setSelectedProperty(rev.propertyObj); }}
+                                className="text-[10px] text-bold-copper font-bold hover:underline uppercase tracking-wider text-left block mt-0.5"
+                              >
+                                {rev.propertyName}
+                              </button>
+                            </div>
+                            <span className="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-xs font-bold text-stone-400 uppercase">
+                              {rev.author.charAt(0)}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </section>
-
-              {/* NOS NUMAN STORIES SECTION (Photo 7 Inspired) */}
+  
+              {/* NOS STAYSTAR STORIES SECTION (Photo 7 Inspired) */}
               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-left">
                 <div className="space-y-8">
                   <div className="space-y-1">
@@ -1550,7 +1662,7 @@ export default function App() {
                       Inspirations & Communauté
                     </span>
                     <h3 className="font-display font-black uppercase tracking-tight text-3xl text-stone-800">
-                      Nos Numan Stories
+                      Nos Staystar Stories
                     </h3>
                   </div>
 

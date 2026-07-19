@@ -60,3 +60,12 @@ html {
   background: #2D4F4F;
 }
 
+/* Zellij pattern background overlay for exceptional properties */
+.zellij-pattern-bg {
+  opacity: 0.45;
+  filter: none;
+  scale: 1.1;
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
