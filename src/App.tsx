@@ -141,7 +141,7 @@ export default function App() {
   // Top promo banner state
   const [showPromoBanner, setShowPromoBanner] = useState<boolean>(true);
   // Active city tab for the interactive city map/highlights grid
-  const [activeCityLink, setActiveCityLink] = useState<string>("Marrakech");
+  const [activeCityLink, setActiveCityLink] = useState<string>("projet-neuf");
 
   // Toggle dynamic document direction for Arabic support
   useEffect(() => {
@@ -1216,38 +1216,67 @@ export default function App() {
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                   
-                  {/* Left Side: Big interactive city typography list */}
+                  {/* Left Side: Big interactive service typography list */}
                   <div className="lg:col-span-5 space-y-6">
                     <span className="text-[10px] font-bold text-bold-copper uppercase tracking-widest block font-sans">
-                      Où nous trouver
+                      {language === "fr" ? "Nos Expertises" : language === "en" ? "Our Expertise" : "خبراتنا العقارية"}
                     </span>
                     <h3 className="font-display font-black uppercase tracking-tight text-3xl text-stone-800">
-                      Choisissez votre décor
+                      {language === "fr" ? "Découvrez nos services" : language === "en" ? "Explore our services" : "اكتشف خدماتنا المتكاملة"}
                     </h3>
                     
-                    <div className="flex flex-col space-y-3 pt-4">
+                    <div className="flex flex-col space-y-2 pt-2">
                       {[
-                        { name: "Marrakech", label: "Marrakech", bg: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80", tag: "Design & Tradition" },
-                        { name: "Casablanca", label: "Casablanca", bg: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80", tag: "Affaires & Modernité" },
-                        { name: "Tanger", label: "Tanger", bg: "https://images.unsplash.com/photo-1568849676085-51415703900f?auto=format&fit=crop&w=800&q=80", tag: "Vue Mer & Bohème" },
-                        { name: "Rabat", label: "Rabat", bg: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80", tag: "Culture & Calme" },
-                      ].map((cityItem) => {
-                        const isActive = activeCityLink === cityItem.name;
+                        { 
+                          name: "projet-neuf", 
+                          label: language === "fr" ? "PROJET NEUF" : language === "en" ? "NEW PROJECTS" : "مشاريع جديدة", 
+                          tag: language === "fr" ? "COMMERCIALISATION" : language === "en" ? "MARKETING" : "تسويق عقاري",
+                          bg: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" 
+                        },
+                        { 
+                          name: "courte-duree", 
+                          label: language === "fr" ? "COURTE DURÉE" : language === "en" ? "SHORT TERM" : "كراء قصير المدى", 
+                          tag: language === "fr" ? "LOCATION" : language === "en" ? "RENTAL" : "كراء",
+                          bg: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" 
+                        },
+                        { 
+                          name: "longue-duree", 
+                          label: language === "fr" ? "LONGUE DURÉE" : language === "en" ? "LONG TERM" : "كراء طويل المدى", 
+                          tag: language === "fr" ? "LOCATION" : language === "en" ? "RENTAL" : "كراء",
+                          bg: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" 
+                        },
+                        { 
+                          name: "amenagement", 
+                          label: language === "fr" ? "AMÉNAGEMENT" : language === "en" ? "DESIGN & FITTINGS" : "تأثيث وتصميم", 
+                          tag: language === "fr" ? "DESIGN D'INTÉRIEUR" : language === "en" ? "INTERIOR DESIGN" : "تصميم داخلي",
+                          bg: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" 
+                        },
+                        { 
+                          name: "ventes-achats", 
+                          label: language === "fr" ? "VENTES & ACHATS" : language === "en" ? "SALES & BUYING" : "بيع وشراء العقارات", 
+                          tag: language === "fr" ? "DE BIENS" : language === "en" ? "TRANSACTIONS" : "عقارات",
+                          bg: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
+                        },
+                      ].map((serviceItem) => {
+                        const isActive = activeCityLink === serviceItem.name;
                         return (
                           <button
-                            key={cityItem.name}
+                            key={serviceItem.name}
                             onClick={() => {
-                              setActiveCityLink(cityItem.name);
-                              setSearchCity(cityItem.name);
+                              setActiveCityLink(serviceItem.name);
                             }}
-                            className="text-left group flex items-center transition-all py-2 border-b border-stone-200/50"
+                            className="text-left group flex items-center transition-all py-1.5 border-b border-stone-200/40"
                           >
-                            <span className={`text-4xl sm:text-5xl font-display font-black tracking-tighter uppercase transition-colors ${isActive ? "text-numa-blue" : "text-stone-400 hover:text-stone-800"}`}>
+                            <span className={`text-2xl sm:text-3xl font-display font-black tracking-tight uppercase transition-all duration-300 ${isActive ? "text-numa-blue" : "text-stone-400 hover:text-stone-800"}`}>
                               {isActive && "↗ "}
-                              {cityItem.label}
+                              {serviceItem.label}
                             </span>
-                            <span className={`ml-4 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border transition-all ${isActive ? "bg-numa-blue/10 border-numa-blue text-numa-blue" : "bg-transparent border-transparent text-transparent group-hover:text-stone-500"}`}>
-                              {cityItem.tag}
+                            <span className={`ml-4 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all ${
+                              isActive 
+                                ? "bg-numa-blue/10 border-numa-blue text-numa-blue" 
+                                : "bg-transparent border-transparent text-transparent group-hover:text-stone-500"
+                            }`}>
+                              {serviceItem.tag}
                             </span>
                           </button>
                         );
@@ -1260,18 +1289,28 @@ export default function App() {
                     <div className="space-y-6">
                       <div className="h-72 rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative">
                         <img 
-                          src={activeCityLink === "Marrakech" ? "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80" : activeCityLink === "Casablanca" ? "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" : activeCityLink === "Tanger" ? "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" : "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80"}
-                          alt="City main scene" 
+                          src={
+                            activeCityLink === "projet-neuf" ? "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" : 
+                            activeCityLink === "courte-duree" ? "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" : 
+                            activeCityLink === "longue-duree" ? "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" : 
+                            activeCityLink === "amenagement" ? "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" : 
+                            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+                          }
+                          alt="Service main scene" 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute top-4 left-4 bg-[#111111] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                          {activeCityLink}
+                          {activeCityLink === "projet-neuf" ? (language === "fr" ? "PROJET NEUF" : "NEW PROJECTS") :
+                           activeCityLink === "courte-duree" ? (language === "fr" ? "COURTE DURÉE" : "SHORT-TERM") :
+                           activeCityLink === "longue-duree" ? (language === "fr" ? "LONGUE DURÉE" : "LONG-TERM") :
+                           activeCityLink === "amenagement" ? (language === "fr" ? "AMÉNAGEMENT" : "FURNISHING") :
+                           (language === "fr" ? "VENTES & ACHATS" : "SALES")}
                         </div>
                       </div>
                       <div className="h-48 rounded-3xl overflow-hidden shadow-lg border border-stone-200 group">
                         <img 
                           src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" 
-                          alt="City secondary scene" 
+                          alt="Premium space detail" 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
@@ -1280,18 +1319,18 @@ export default function App() {
                       <div className="h-48 rounded-3xl overflow-hidden shadow-lg border border-stone-200 group">
                         <img 
                           src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" 
-                          alt="City tertiary scene" 
+                          alt="Interior detail" 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                       <div className="h-72 rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative">
                         <img 
                           src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80" 
-                          alt="City room layout" 
+                          alt="Clean layout example" 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute bottom-4 right-4 bg-numa-pink text-[#111111] font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full">
-                          100% Autonome
+                          100% Premium
                         </div>
                       </div>
                     </div>
@@ -2127,107 +2166,119 @@ export default function App() {
               ) : (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   
-                  {/* SPLIT MAP PANEL - Rendered only in "map" view mode */}
-                  {viewMode === "map" && (
-                    <div className="lg:col-span-5 xl:col-span-4 sticky top-24 h-[550px] bg-white rounded-3xl p-3 overflow-hidden flex flex-col justify-between apply-3d-texture">
-                      <div className="flex items-center justify-between mb-2 px-1">
-                        <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest font-sans flex items-center gap-1">
-                          <Activity className="w-3 h-3 text-bold-copper animate-pulse" />
-                          Carte Interactive Maroc
-                        </span>
-                        <span className="text-[10px] text-stone-500 font-bold">{filteredProperties.length} suites localisées</span>
-                      </div>
-                      
-                      {/* Stylized Vector SVG Map of Morocco */}
-                      <div className="relative w-full h-[470px] bg-stone-50 rounded-2xl overflow-hidden border border-stone-100 flex items-center justify-center">
-                        <svg viewBox="0 0 320 400" className="w-full h-full select-none">
-                          {/* Morocco Coast outline (Visual Sketch Representation) */}
-                          <path 
-                            d="M 50,40 Q 80,80 110,65 T 180,105 T 260,90 T 310,135 L 290,390 L 80,390 Z" 
-                            fill="#FDFBFAF2" 
-                            stroke="#E3DFD4" 
-                            strokeWidth="3" 
-                            strokeLinejoin="round"
-                          />
-                          {/* Mountains Ridge */}
-                          <path 
-                            d="M 120,200 Q 180,260 250,240" 
-                            fill="none" 
-                            stroke="#ECE6D9" 
-                            strokeWidth="4" 
-                            strokeLinecap="round" 
-                            strokeDasharray="4,4" 
-                          />
-                          <text x="35" y="160" fill="#CBD5E1" className="text-[9px] font-mono font-bold tracking-wider -rotate-45 uppercase">Atlantique</text>
-                          <text x="170" y="320" fill="#ECE6D9" className="text-[10px] font-serif italic font-bold">Atlas</text>
-
-                          {/* Interactive Pin Overlays mapped to physical coordinates */}
-                          {filteredProperties.map((p) => {
-                            // Assign coordinates based on city
-                            let cx = 130;
-                            let cy = 250;
-                            if (p.city === "Tanger") { cx = 250; cy = 90; }
-                            else if (p.city === "Rabat") { cx = 180; cy = 150; }
-                            else if (p.city === "Casablanca") { cx = 150; cy = 185; }
-                            else if (p.city === "Marrakech") { cx = 120; cy = 265; }
-
-                            // Slightly offset different properties in same city to avoid perfect stacking
-                            const hash = p.id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
-                            const offsetX = (hash % 15) - 7.5;
-                            const offsetY = ((hash >> 2) % 15) - 7.5;
-                            const finalX = cx + offsetX;
-                            const finalY = cy + offsetY;
-
-                            return (
-                              <g 
-                                key={`map-pin-${p.id}`}
-                                className="cursor-pointer group"
-                                onClick={() => { setSelectedProperty(p); }}
-                              >
-                                {/* Ripple pulse */}
-                                <circle 
-                                  cx={finalX} 
-                                  cy={finalY} 
-                                  r="12" 
-                                  fill="#C05621" 
-                                  opacity="0.15" 
-                                  className="group-hover:scale-150 transition-transform duration-300 origin-center" 
-                                />
-                                <circle cx={finalX} cy={finalY} r="4" fill="#C05621" className="group-hover:fill-bold-text transition-colors" />
-                                
-                                {/* Hover Floating Price Tag */}
-                                <g transform={`translate(${finalX - 22}, ${finalY - 26})`}>
-                                  <rect 
-                                    width="44" 
-                                    height="18" 
-                                    rx="6" 
-                                    fill="#111111" 
-                                    className="group-hover:fill-[#C05621] transition-colors shadow-lg" 
-                                  />
-                                  <text 
-                                    x="22" 
-                                    y="12" 
-                                    fill="white" 
-                                    textAnchor="middle" 
-                                    className="text-[9px] font-mono font-bold"
-                                  >
-                                    {p.pricePerNight}€
-                                  </text>
-                                </g>
-                              </g>
-                            );
-                          })}
-                        </svg>
-
-                        <div className="absolute bottom-3 left-3 right-3 bg-[#111111]/90 backdrop-blur-md px-3 py-2 rounded-xl border border-stone-800 text-[10px] text-stone-300 text-left">
-                          💡 <span className="font-bold text-white">Astuce :</span> Cliquez sur un prix sur la carte pour inspecter et simuler la réservation de la suite correspondante.
+                  {/* SPLIT MAP PANEL - Rendered only in "map" view mode with smooth transition */}
+                  <AnimatePresence>
+                    {viewMode === "map" && (
+                      <motion.div 
+                        initial={{ opacity: 0, x: -40, scale: 0.95 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: -40, scale: 0.95 }}
+                        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                        className="lg:col-span-5 xl:col-span-4 sticky top-24 h-[550px] bg-white rounded-3xl p-3 overflow-hidden flex flex-col justify-between apply-3d-texture shadow-md border border-stone-200"
+                      >
+                        <div className="flex items-center justify-between mb-2 px-1">
+                          <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest font-sans flex items-center gap-1">
+                            <Activity className="w-3 h-3 text-bold-copper animate-pulse" />
+                            Carte Interactive Maroc
+                          </span>
+                          <span className="text-[10px] text-stone-500 font-bold">{filteredProperties.length} suites localisées</span>
                         </div>
-                      </div>
-                    </div>
-                  )}
+                        
+                        {/* Stylized Vector SVG Map of Morocco */}
+                        <div className="relative w-full h-[470px] bg-stone-50 rounded-2xl overflow-hidden border border-stone-100 flex items-center justify-center">
+                          <svg viewBox="0 0 320 400" className="w-full h-full select-none">
+                            {/* Morocco Coast outline (Visual Sketch Representation) */}
+                            <path 
+                              d="M 50,40 Q 80,80 110,65 T 180,105 T 260,90 T 310,135 L 290,390 L 80,390 Z" 
+                              fill="#FDFBFAF2" 
+                              stroke="#E3DFD4" 
+                              strokeWidth="3" 
+                              strokeLinejoin="round"
+                            />
+                            {/* Mountains Ridge */}
+                            <path 
+                              d="M 120,200 Q 180,260 250,240" 
+                              fill="none" 
+                              stroke="#ECE6D9" 
+                              strokeWidth="4" 
+                              strokeLinecap="round" 
+                              strokeDasharray="4,4" 
+                            />
+                            <text x="35" y="160" fill="#CBD5E1" className="text-[9px] font-mono font-bold tracking-wider -rotate-45 uppercase">Atlantique</text>
+                            <text x="170" y="320" fill="#ECE6D9" className="text-[10px] font-serif italic font-bold">Atlas</text>
+
+                            {/* Interactive Pin Overlays mapped to physical coordinates */}
+                            {filteredProperties.map((p) => {
+                              // Assign coordinates based on city
+                              let cx = 130;
+                              let cy = 250;
+                              if (p.city === "Tanger") { cx = 250; cy = 90; }
+                              else if (p.city === "Rabat") { cx = 180; cy = 150; }
+                              else if (p.city === "Casablanca") { cx = 150; cy = 185; }
+                              else if (p.city === "Marrakech") { cx = 120; cy = 265; }
+
+                              // Slightly offset different properties in same city to avoid perfect stacking
+                              const hash = p.id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                              const offsetX = (hash % 15) - 7.5;
+                              const offsetY = ((hash >> 2) % 15) - 7.5;
+                              const finalX = cx + offsetX;
+                              const finalY = cy + offsetY;
+
+                              return (
+                                <g 
+                                  key={`map-pin-${p.id}`}
+                                  className="cursor-pointer group"
+                                  onClick={() => { setSelectedProperty(p); }}
+                                >
+                                  {/* Ripple pulse */}
+                                  <circle 
+                                    cx={finalX} 
+                                    cy={finalY} 
+                                    r="12" 
+                                    fill="#C05621" 
+                                    opacity="0.15" 
+                                    className="group-hover:scale-150 transition-transform duration-300 origin-center" 
+                                  />
+                                  <circle cx={finalX} cy={finalY} r="4" fill="#C05621" className="group-hover:fill-bold-text transition-colors" />
+                                  
+                                  {/* Hover Floating Price Tag */}
+                                  <g transform={`translate(${finalX - 22}, ${finalY - 26})`}>
+                                    <rect 
+                                      width="44" 
+                                      height="18" 
+                                      rx="6" 
+                                      fill="#111111" 
+                                      className="group-hover:fill-[#C05621] transition-colors shadow-lg" 
+                                    />
+                                    <text 
+                                      x="22" 
+                                      y="12" 
+                                      fill="white" 
+                                      textAnchor="middle" 
+                                      className="text-[9px] font-mono font-bold"
+                                    >
+                                      {p.pricePerNight}€
+                                    </text>
+                                  </g>
+                                </g>
+                              );
+                            })}
+                          </svg>
+
+                          <div className="absolute bottom-3 left-3 right-3 bg-[#111111]/90 backdrop-blur-md px-3 py-2 rounded-xl border border-stone-800 text-[10px] text-stone-300 text-left">
+                            💡 <span className="font-bold text-white">Astuce :</span> Cliquez sur un prix sur la carte pour inspecter et simuler la réservation de la suite correspondante.
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
                   {/* PROPERTY CARDS GRID */}
-                  <div className={`grid grid-cols-1 md:grid-cols-2 ${viewMode === "map" ? "lg:col-span-7 xl:col-span-8" : "lg:grid-cols-3 lg:col-span-12"} gap-8`}>
+                  <motion.div 
+                    layout
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className={`grid grid-cols-1 md:grid-cols-2 ${viewMode === "map" ? "lg:col-span-7 xl:col-span-8" : "lg:grid-cols-3 lg:col-span-12"} gap-8`}
+                  >
                     {filteredProperties.map((prop) => {
                       // Get active photo sliding index for this card
                       // Defaults to 0 if not yet set
@@ -2236,6 +2287,7 @@ export default function App() {
                       
                       return (
                         <motion.div 
+                          layout
                           key={prop.id}
                           className="bg-white rounded-3xl overflow-hidden border border-stone-200 transition-all group flex flex-col h-full hover:shadow-xl relative text-left"
                           whileHover={{ 
@@ -2408,7 +2460,7 @@ export default function App() {
                         </motion.div>
                       );
                     })}
-                  </div>
+                  </motion.div>
 
                 </div>
               )}
