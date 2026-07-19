@@ -1,6 +1,6 @@
 export const DICTIONARY = {
   fr: {
-    brandName: "numa",
+    brandName: "star here",
     slogan: "Votre chez-vous au cœur du Maroc, avec le service d'un hôtel.",
     tagline: "L'aparthôtel de nouvelle génération : autonomie numérique, confort premium, et charme marocain authentique.",
     
