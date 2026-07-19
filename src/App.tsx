@@ -1209,7 +1209,7 @@ export default function App() {
               {/* INTERACTIVE CITY MAP/HIGHLIGHTS SHOWCASE (Photo 3 Inspired) */}
               <section 
                 className="relative py-12 md:py-20 text-left overflow-hidden bg-cover bg-center border-y border-stone-200"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=1600&q=80')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=1600&q=80')" }}
               >
                 {/* Elegant overlay to blend the Zellij pattern with Numa's warm cream/off-white palette - opacity lowered to make the mosaic pop! */}
                 <div className="absolute inset-0 bg-[#FAF6F2]/70 backdrop-blur-[0.5px]" />
@@ -1227,7 +1227,7 @@ export default function App() {
                     
                     <div className="flex flex-col space-y-3 pt-4">
                       {[
-                        { name: "Marrakech", label: "Marrakech", bg: "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=800&q=80", tag: "Design & Tradition" },
+                        { name: "Marrakech", label: "Marrakech", bg: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80", tag: "Design & Tradition" },
                         { name: "Casablanca", label: "Casablanca", bg: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80", tag: "Affaires & Modernité" },
                         { name: "Tanger", label: "Tanger", bg: "https://images.unsplash.com/photo-1568849676085-51415703900f?auto=format&fit=crop&w=800&q=80", tag: "Vue Mer & Bohème" },
                         { name: "Rabat", label: "Rabat", bg: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80", tag: "Culture & Calme" },
@@ -1260,7 +1260,7 @@ export default function App() {
                     <div className="space-y-6">
                       <div className="h-72 rounded-3xl overflow-hidden shadow-lg border border-stone-200 group relative">
                         <img 
-                          src={activeCityLink === "Marrakech" ? "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80" : activeCityLink === "Casablanca" ? "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" : activeCityLink === "Tanger" ? "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" : "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80"}
+                          src={activeCityLink === "Marrakech" ? "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80" : activeCityLink === "Casablanca" ? "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" : activeCityLink === "Tanger" ? "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" : "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80"}
                           alt="City main scene" 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -1811,7 +1811,7 @@ export default function App() {
                     {/* Story 1 */}
                     <div className="relative h-[420px] rounded-3xl overflow-hidden group border border-stone-200 shadow-sm">
                       <img 
-                        src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80" 
+                        src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80" 
                         alt="Marrakech patio" 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         referrerPolicy="no-referrer"
@@ -2714,7 +2714,7 @@ export default function App() {
                   <div className="bg-white rounded-3xl overflow-hidden border border-stone-300 hover:shadow-md transition-all flex flex-col justify-between h-full">
                     <div className="relative h-48 bg-stone-100">
                       <img 
-                        src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80" 
+                        src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80" 
                         alt="Desert getaway" 
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"

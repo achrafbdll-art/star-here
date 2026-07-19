@@ -20,7 +20,7 @@ export const STATIC_PROPERTIES: Property[] = [
     amenities: ["wifi-fast", "kitchenette", "laundry", "smart-tv", "automated-checkin", "pool", "rooftop"],
     seoKeywords: ["Appart hôtel Marrakech", "Location courte durée Marrakech", "Riad Medina Marrakech", "Location de vacances Marrakech"],
     images: {
-      hero: "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=1200&q=80",
+      hero: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80",
       details: [
         "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80",
         "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
