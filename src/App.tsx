@@ -495,7 +495,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-bold-bg text-bold-text flex flex-col selection:bg-bold-copper selection:text-white antialiased font-sans relative">
       {/* 3D Crocodile/Alligator Skin Textured Background Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-22 croc-light-3d bg-repeat"></div>
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.38] croc-light-3d bg-repeat"></div>
       
       {/* PROMO BANNER (Staystar membership top-bar) */}
       {showPromoBanner && (
@@ -677,7 +677,7 @@ export default function App() {
                   </div>
 
                   {/* PREMIUM CAPSULE SEARCH BAR (100% Numa Style Interactive Overlay) */}
-                  <div className="bg-white rounded-3xl md:rounded-full shadow-2xl p-3 text-bold-text max-w-4xl mx-auto border border-stone-200 mt-12 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2 relative">
+                  <div className="bg-white rounded-3xl md:rounded-full p-3 text-bold-text max-w-4xl mx-auto mt-12 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2 relative apply-3d-texture">
                     
                     {/* Destination Selection with Floating Overlay */}
                     <div className="flex flex-col text-left px-5 py-2.5 md:py-0 w-full md:w-1/4 md:border-r border-stone-100 relative">
@@ -1726,7 +1726,7 @@ export default function App() {
 
               {/* STAY CONNECTED, STAY INSPIRED FOOTER SUBSCRIPTION (Photo 8 Inspired) */}
               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-12">
-                <div className="bg-[#FCE4E6] rounded-3xl p-8 md:p-16 border border-stone-200 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden text-left shadow-md">
+                <div className="bg-[#FCE4E6] rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden text-left apply-3d-texture">
                   
                   {/* Left side: Subscription box */}
                   <div className="space-y-6 max-w-md w-full relative z-10">
@@ -1809,7 +1809,7 @@ export default function App() {
               </div>
 
               {/* HIGH-FIDELITY FILTERS, BUDGET SLIDER & SORT CONTROLS */}
-              <div className="bg-white p-6 rounded-3xl border border-stone-200 shadow-sm space-y-6 text-left">
+              <div className="bg-white p-6 rounded-3xl space-y-6 text-left apply-3d-texture">
                 
                 {/* Top Row: City & View Mode Toggles */}
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-stone-100 pb-5">
@@ -1982,7 +1982,7 @@ export default function App() {
                   
                   {/* SPLIT MAP PANEL - Rendered only in "map" view mode */}
                   {viewMode === "map" && (
-                    <div className="lg:col-span-5 xl:col-span-4 sticky top-24 h-[550px] bg-white border border-stone-200 rounded-3xl p-3 shadow-sm overflow-hidden flex flex-col justify-between">
+                    <div className="lg:col-span-5 xl:col-span-4 sticky top-24 h-[550px] bg-white rounded-3xl p-3 overflow-hidden flex flex-col justify-between apply-3d-texture">
                       <div className="flex items-center justify-between mb-2 px-1">
                         <span className="text-[10px] font-black text-stone-400 uppercase tracking-widest font-sans flex items-center gap-1">
                           <Activity className="w-3 h-3 text-bold-copper animate-pulse" />
@@ -2360,7 +2360,7 @@ export default function App() {
                 </div>
 
                 {/* INTERACTIVE LOCK SIMULATOR */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-300 shadow-xl space-y-6 text-center max-w-md mx-auto">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 text-center max-w-md mx-auto apply-3d-texture space-y-6">
                   <div className="space-y-2">
                     <span className="px-3 py-1 bg-bold-copper/10 border border-bold-copper/20 text-bold-copper rounded-full text-[10px] font-sans font-bold uppercase tracking-widest inline-block">
                       Démonstration interactive
@@ -2475,7 +2475,7 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 {/* Service 1 */}
-                <div className="bg-white p-6 rounded-3xl border border-stone-300 hover:shadow-md transition-all space-y-4 text-left">
+                <div className="bg-white p-6 rounded-3xl transition-all space-y-4 text-left apply-3d-texture">
                   <div className="w-12 h-12 rounded-xl bg-bold-teal/10 text-bold-teal flex items-center justify-center">
                     <Activity className="w-6 h-6" />
                   </div>
@@ -2484,7 +2484,7 @@ export default function App() {
                 </div>
 
                 {/* Service 2 */}
-                <div className="bg-white p-6 rounded-3xl border border-stone-300 hover:shadow-md transition-all space-y-4 text-left">
+                <div className="bg-white p-6 rounded-3xl transition-all space-y-4 text-left apply-3d-texture">
                   <div className="w-12 h-12 rounded-xl bg-bold-copper/10 text-bold-copper flex items-center justify-center">
                     <Coffee className="w-6 h-6" />
                   </div>
@@ -2493,7 +2493,7 @@ export default function App() {
                 </div>
 
                 {/* Service 3 */}
-                <div className="bg-white p-6 rounded-3xl border border-stone-300 hover:shadow-md transition-all space-y-4 text-left">
+                <div className="bg-white p-6 rounded-3xl transition-all space-y-4 text-left apply-3d-texture">
                   <div className="w-12 h-12 rounded-xl bg-bold-teal/10 text-bold-teal flex items-center justify-center">
                     <Sparkles className="w-6 h-6" />
                   </div>
@@ -2502,7 +2502,7 @@ export default function App() {
                 </div>
 
                 {/* Service 4 */}
-                <div className="bg-white p-6 rounded-3xl border border-stone-300 hover:shadow-md transition-all space-y-4 text-left">
+                <div className="bg-white p-6 rounded-3xl transition-all space-y-4 text-left apply-3d-texture">
                   <div className="w-12 h-12 rounded-xl bg-bold-copper/10 text-bold-copper flex items-center justify-center">
                     <Utensils className="w-6 h-6" />
                   </div>
@@ -2642,7 +2642,7 @@ export default function App() {
               </div>
 
               {/* CHAT CONTAINER */}
-              <div className="bg-white rounded-3xl border border-stone-300 shadow-xl overflow-hidden flex flex-col h-[550px]">
+              <div className="bg-white rounded-3xl overflow-hidden flex flex-col h-[550px] apply-3d-texture">
                 
                 {/* Header Concierge Status */}
                 <div className="bg-stone-950 text-white p-4 flex items-center justify-between border-b border-stone-800">
@@ -2787,7 +2787,7 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pt-4">
                 
                 {/* LEFT SIDE: STEPS CONTAINER (7 Cols) */}
-                <div className="md:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-stone-300 shadow-sm space-y-6">
+                <div className="md:col-span-7 bg-white rounded-3xl p-6 sm:p-8 space-y-6 apply-3d-texture">
                   
                   {portalError && (
                     <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 font-semibold">
@@ -3185,7 +3185,7 @@ export default function App() {
                 <div className="md:col-span-5 space-y-6">
                   
                   {/* Smart lock interactive mock view */}
-                  <div className="bg-[#1A1A1A] rounded-3xl p-6 border border-stone-800 text-stone-100 text-center space-y-6">
+                  <div className="bg-[#1A1A1A] rounded-3xl p-6 text-stone-100 text-center space-y-6 apply-3d-texture border border-stone-800">
                     <span className="text-[8px] font-sans text-bold-copper font-black tracking-widest uppercase block">
                       Statut de la porte de votre hébergement
                     </span>
@@ -3355,7 +3355,7 @@ export default function App() {
                 <div className="lg:col-span-5 space-y-6">
                   
                   {/* Video Player Card */}
-                  <div className="bg-[#1A1A1A] rounded-3xl overflow-hidden border border-stone-800 shadow-2xl text-stone-100 relative">
+                  <div className="bg-[#1A1A1A] rounded-3xl overflow-hidden text-stone-100 relative apply-3d-texture">
                     
                     {/* Header */}
                     <div className="p-4 bg-stone-900 border-b border-stone-800 flex items-center justify-between text-left">
