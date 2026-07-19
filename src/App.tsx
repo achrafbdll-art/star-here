@@ -495,15 +495,15 @@ export default function App() {
   return (
     <div className="min-h-screen bg-bold-bg text-bold-text flex flex-col selection:bg-bold-copper selection:text-white antialiased font-sans">
       
-      {/* PROMO BANNER (Numa membership top-bar) */}
+      {/* PROMO BANNER (Staystar membership top-bar) */}
       {showPromoBanner && (
         <div className="bg-[#111111] text-[#FACCD1] py-2.5 px-10 text-center text-[11px] sm:text-xs font-semibold relative flex items-center justify-center gap-2 z-50">
           <span className="truncate">
             {language === "fr" 
-              ? "Devenez membre de numa gratuitement et bénéficiez de 15% de réduction sur vos futurs séjours !" 
+              ? "Devenez membre de staystar gratuitement et bénéficiez de 15% de réduction sur vos futurs séjours !" 
               : language === "en" 
-              ? "Become a Numa member for free and get 15% off your future stays!" 
-              : "كن عضوًا في نوما مجانًا واحصل على خصم 15٪ على إقاماتك القادمة!"}
+              ? "Become a Staystar member for free and get 15% off your future stays!" 
+              : "كن عضوًا في ستايستار مجانًا واحصل على خصم 15٪ على إقاماتك القادمة!"}
           </span>
           <button 
             onClick={() => setActiveTab("member")} 
@@ -528,7 +528,7 @@ export default function App() {
           {/* Logo Brand */}
           <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => setActiveTab("home")}>
             <div className="text-3xl font-black tracking-tight text-[#111111] lowercase font-display">
-              numa<span className="text-bold-copper font-serif italic font-semibold">.</span>
+              staystar<span className="text-bold-copper font-serif italic font-semibold">.</span>
             </div>
           </div>
 
@@ -1010,7 +1010,7 @@ export default function App() {
                 </div>
               </section>
 
-              {/* NUMA PINK SECTION (Photo 2 Inspired) */}
+              {/* STAYSTAR PINK SECTION (Photo 2 Inspired) */}
               <section className="bg-numa-pink-light border-y border-stone-200 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                   
@@ -1021,13 +1021,13 @@ export default function App() {
                       Long séjour ou week-end.<br />
                       Chambres ou appartements.<br />
                       <span className="text-[#C05621] italic font-serif tracking-normal normal-case block mt-2">
-                        Il y a toujours un numa pour vous.
+                        Il y a toujours un staystar pour vous.
                       </span>
                     </h2>
                     <p className="text-stone-700 text-xs sm:text-sm leading-relaxed font-medium">
                       {language === "fr" 
-                        ? "Dar & Numa réinvente l'hospitalité haut de gamme au Maroc. Profitez de l'autonomie totale offerte par nos technologies de check-in numérique et d'un support local disponible 24h/24 via WhatsApp, allié au confort ultime d'appartements d'architecte."
-                        : "Dar & Numa reinvents premium hospitality in Morocco. Enjoy absolute autonomy offered by our smart check-in technology and a local 24/7 WhatsApp support, coupled with the ultimate comfort of architect-designed suites."}
+                        ? "Dar & Staystar réinvente l'hospitalité haut de gamme au Maroc. Profitez de l'autonomie totale offerte par nos technologies de check-in numérique et d'un support local disponible 24h/24 via WhatsApp, allié au confort ultime d'appartements d'architecte."
+                        : "Dar & Staystar reinvents premium hospitality in Morocco. Enjoy absolute autonomy offered by our smart check-in technology and a local 24/7 WhatsApp support, coupled with the ultimate comfort of architect-designed suites."}
                     </p>
                     <div>
                       <button 
@@ -1408,10 +1408,10 @@ export default function App() {
                     <div className="space-y-4">
                       <span className="text-[10px] font-bold text-[#FACCD1] uppercase tracking-widest block">Avant-première exclusive</span>
                       <h3 className="font-display font-black uppercase text-3xl sm:text-4xl tracking-tight max-w-2xl mx-auto">
-                        En tant que membre Numa, profitez du meilleur tarif et d'avantages exclusifs !
+                        En tant que membre Staystar, profitez du meilleur tarif et d'avantages exclusifs !
                       </h3>
                       <p className="text-stone-300 text-xs sm:text-sm max-w-lg mx-auto">
-                        Rejoignez le club de voyageurs numa.dar gratuitement et bénéficiez de services d'exception dès votre première nuitée au Maroc.
+                        Rejoignez le club de voyageurs staystar.dar gratuitement et bénéficiez de services d'exception dès votre première nuitée au Maroc.
                       </p>
                       <button 
                         onClick={() => setActiveTab("member")}
@@ -1628,7 +1628,7 @@ export default function App() {
                       Stay connected,<br />stay inspired.
                     </h3>
                     <p className="text-stone-700 text-xs sm:text-sm">
-                      Inscrivez-vous à notre newsletter pour recevoir nos nouveautés locales, de nouvelles destinations de rêve au Maroc et des promotions exclusives de membre numa.
+                      Inscrivez-vous à notre newsletter pour recevoir nos nouveautés locales, de nouvelles destinations de rêve au Maroc et des promotions exclusives de membre staystar.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2.5">
                       <input 
@@ -3687,11 +3687,11 @@ export default function App() {
 
                   {/* PROMO CODE SECTION */}
                   <div className="border-t border-b border-stone-100 py-3 space-y-2">
-                    <label className="text-[10px] font-sans font-bold text-stone-400 uppercase tracking-widest block">Code promo membre numa</label>
+                    <label className="text-[10px] font-sans font-bold text-stone-400 uppercase tracking-widest block">Code promo membre staystar</label>
                     <div className="flex gap-2">
                       <input 
                         type="text" 
-                        placeholder="Ex: NUMACLUB"
+                        placeholder="Ex: STARCLUB"
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                         className="bg-stone-50 border border-stone-200 rounded-xl px-3 py-1.5 text-xs font-mono uppercase tracking-widest focus:outline-none w-full text-stone-800 font-bold"
@@ -3699,12 +3699,12 @@ export default function App() {
                       <button 
                         type="button"
                         onClick={() => {
-                          if (promoCode.toUpperCase() === "NUMACLUB") {
+                          if (promoCode.toUpperCase() === "STARCLUB") {
                             setAppliedDiscount(0.15);
-                            setPromoSuccess("Code NUMACLUB appliqué ! -15% de réduction membre !");
+                            setPromoSuccess("Code STARCLUB appliqué ! -15% de réduction membre !");
                             setPromoError(null);
                           } else {
-                            setPromoError("Code invalide. Essayez NUMACLUB");
+                            setPromoError("Code invalide. Essayez STARCLUB");
                             setPromoSuccess(null);
                           }
                         }}
@@ -3729,7 +3729,7 @@ export default function App() {
                     </div>
                     {appliedDiscount > 0 && (
                       <div className="flex justify-between text-xs text-emerald-600 font-bold">
-                        <span>Réduction membre numa (15%) :</span>
+                        <span>Réduction membre staystar (15%) :</span>
                         <span>-{Math.round(selectedProperty.pricePerNight * 3 * appliedDiscount)} €</span>
                       </div>
                     )}
@@ -3767,7 +3767,7 @@ export default function App() {
                     {/* Chip and brand */}
                     <div className="flex justify-between items-start">
                       <div className="w-10 h-7 rounded-md bg-amber-400/80 border border-amber-300 opacity-80" />
-                      <span className="font-display font-black text-xs tracking-widest text-[#FACCD1]">numa.dar</span>
+                      <span className="font-display font-black text-xs tracking-widest text-[#FACCD1]">staystar.dar</span>
                     </div>
 
                     {/* Card Number */}

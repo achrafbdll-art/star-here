@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { Language } from "../types";
 
-// Coordinates dictionary for Moroccan cities served by numa.dar
+// Coordinates dictionary for Moroccan cities served by staystar.dar
 const CITY_COORDINATES: Record<string, { lat: number; lon: number }> = {
   casablanca: { lat: 33.5731, lon: -7.5898 },
   marrakech: { lat: 31.6295, lon: -7.9811 },

@@ -1,6 +1,6 @@
 export const DICTIONARY = {
   fr: {
-    brandName: "starhere",
+    brandName: "staystar",
     slogan: "Votre chez-vous au cœur du Maroc, avec le service d'un hôtel.",
     tagline: "L'aparthôtel de nouvelle génération : autonomie numérique, confort premium, et charme marocain authentique.",
     
@@ -105,10 +105,10 @@ export const DICTIONARY = {
     support24: "Support Client WhatsApp",
     phoneNum: "+212 522-990099",
     citiesServed: "Nos implantations : Casablanca (Maarif, Gauthier, Anfa), Marrakech, Rabat, Tanger, Agadir.",
-    copyright: "© 2026 Numa Aparthotels Maroc. Tous droits réservés. Optimisé SEO Casablanca Maarif."
+    copyright: "© 2026 Staystar Aparthotels Maroc. Tous droits réservés. Optimisé SEO Casablanca Maarif."
   },
   en: {
-    brandName: "numa",
+    brandName: "staystar",
     slogan: "Your home in the heart of Morocco, with the service of a hotel.",
     tagline: "The next-generation aparthotel: digital autonomy, premium comfort, and authentic Moroccan charm.",
     
@@ -213,10 +213,10 @@ export const DICTIONARY = {
     support24: "WhatsApp Client Support",
     phoneNum: "+212 522-990099",
     citiesServed: "Locations: Casablanca (Maarif, Gauthier, Anfa), Marrakech, Rabat, Tangier, Agadir.",
-    copyright: "© 2026 Numa Serviced Apartments Morocco. All rights reserved. Casablanca Maarif SEO Optimized."
+    copyright: "© 2026 Staystar Serviced Apartments Morocco. All rights reserved. Casablanca Maarif SEO Optimized."
   },
   ar: {
-    brandName: "نوما",
+    brandName: "ستايستار",
     slogan: "بيتك في قلب المغرب، مع خدمات فندقية راقية.",
     tagline: "الجيل الجديد من الشقق الفندقية: استقلالية رقمية، راحة فائقة، وجمالية مغربية أصيلة.",
     
@@ -321,6 +321,6 @@ export const DICTIONARY = {
     support24: "خدمة العملاء عبر الواتساب",
     phoneNum: "+212 522-990099",
     citiesServed: "مواقعنا: الدار البيضاء (المعاريف، غوتييه، أنفا)، مراكش، الرباط، طنجة، أكادير.",
-    copyright: "© 2026 نوما للشقق الفندقية المغرب. جميع الحقوق محفوظة. سيو الدار البيضاء المعاريف محسن."
+    copyright: "© 2026 ستايستار للشقق الفنداسية المغرب. جميع الحقوق محفوظة. سيو الدار البيضاء المعاريف محسن."
   }
 };
