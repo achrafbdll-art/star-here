@@ -493,7 +493,9 @@ export default function App() {
     });
 
   return (
-    <div className="min-h-screen bg-bold-bg text-bold-text flex flex-col selection:bg-bold-copper selection:text-white antialiased font-sans">
+    <div className="min-h-screen bg-bold-bg text-bold-text flex flex-col selection:bg-bold-copper selection:text-white antialiased font-sans relative">
+      {/* 3D Crocodile/Alligator Skin Textured Background Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-22 croc-light-3d bg-repeat"></div>
       
       {/* PROMO BANNER (Staystar membership top-bar) */}
       {showPromoBanner && (
@@ -1437,19 +1439,11 @@ export default function App() {
                 </div>
               </section>
 
-              {/* NUMA MEMBERSHIP SECTION (Photo 5/6 Inspired) */}
+              {/* STAYSTAR MEMBERSHIP SECTION (3D Alligator Leather Themed) */}
               <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-800 text-white p-8 md:p-16 text-center">
-                  {/* Background picture blurred */}
-                  <div className="absolute inset-0 z-0">
-                    <img 
-                      src="https://images.unsplash.com/photo-1541088966144-8d9633dbbecc?auto=format&fit=crop&w=1200&q=80" 
-                      alt="Scenic city overview" 
-                      className="w-full h-full object-cover opacity-25 blur-sm"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-[#111111]/70" />
-                  </div>
+                <div className="relative rounded-3xl overflow-hidden text-white p-8 md:p-16 text-center croc-dark-3d shadow-2xl border border-stone-800/60">
+                  {/* Subtle dark gold radial vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-950/80 to-black/95 pointer-events-none z-0" />
                   
                   <div className="relative z-10 max-w-4xl mx-auto space-y-12">
                     <div className="space-y-4">
