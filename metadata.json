@@ -1,0 +1,6 @@
+{
+  "name": "Numa - Aparthotels Maroc",
+  "description": "Concept d'aparthôtel innovant au Maroc fusionnant le confort d'un chez-soi équipé, le service d'un hôtel, et un parcours client 100% numérique et autonome.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
