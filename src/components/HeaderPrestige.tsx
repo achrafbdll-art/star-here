@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sparkles, Heart, Scale, Menu, X } from "lucide-react";
+import { Heart, Scale, Menu, X } from "lucide-react";
 import { Language } from "../types";
 
 interface HeaderPrestigeProps {
@@ -58,13 +58,6 @@ export const HeaderPrestige: React.FC<HeaderPrestigeProps> = ({
       line2: language === "fr" ? "PROPOS" : language === "en" ? "US" : "الشركة",
       isMultiLine: true,
     },
-    {
-      id: "assistant",
-      line1: language === "fr" ? "ASSISTANT" : language === "en" ? "ASSISTANT" : "مساعد",
-      line2: "IA",
-      isMultiLine: true,
-      hasSparkle: true,
-    },
   ];
 
   return (
@@ -87,8 +80,8 @@ export const HeaderPrestige: React.FC<HeaderPrestigeProps> = ({
           </button>
         </div>
 
-        {/* Center: Desktop Navigation Bar matching image.png */}
-        <nav className="hidden xl:flex items-center gap-6 lg:gap-8">
+        {/* Center: Desktop Navigation Bar matching image.png (Shifted a bit more to the right) */}
+        <nav className="hidden xl:flex items-center gap-6 lg:gap-8 translate-x-6 xl:translate-x-12">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
 
@@ -125,9 +118,6 @@ export const HeaderPrestige: React.FC<HeaderPrestigeProps> = ({
                   isActive ? "text-[#C05621]" : ""
                 }`}
               >
-                {item.hasSparkle && (
-                  <Sparkles className="w-3.5 h-3.5 text-[#C05621] shrink-0" />
-                )}
                 <div className="flex flex-col items-center leading-[1.15]">
                   <span className="text-[11px] font-extrabold tracking-wider">{item.line1}</span>
                   <span className="text-[11px] font-extrabold tracking-wider">{item.line2}</span>
@@ -170,13 +160,19 @@ export const HeaderPrestige: React.FC<HeaderPrestigeProps> = ({
             </button>
           )}
 
-          {/* "ESPACE CLIENT" Pill Button styled exactly as image.png */}
-          <button
-            onClick={() => setActiveTab("member")}
-            className="hidden md:flex items-center justify-center px-6 py-2.5 rounded-full border border-stone-900 hover:border-black text-stone-950 hover:bg-black hover:text-white font-extrabold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-xs whitespace-nowrap"
+          {/* WhatsApp Direct Icon Button (replacing ESPACE CLIENT as requested) */}
+          <a
+            href="https://wa.me/212661000000?text=Bonjour%20Staystar,%20je%20souhaite%20des%20informations%20sur%20vos%20appartements."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white transition-all duration-200 active:scale-95 shadow-xs hover:shadow-md shrink-0"
+            title="Contacter sur WhatsApp"
+            aria-label="Contacter sur WhatsApp"
           >
-            {language === "fr" ? "ESPACE CLIENT" : language === "en" ? "CLIENT PORTAL" : "فضاء الزبناء"}
-          </button>
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.002.576 1.737.818 2.806.818 3.181 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.769-5.767-5.77zm3.364 8.163c-.14.394-.712.727-1.077.777-.365.05-.838.077-2.482-.603-1.644-.68-2.693-2.355-2.774-2.464-.08-.11-.664-.882-.664-1.682 0-.8.419-1.196.568-1.355.15-.16.326-.2.435-.2.11 0 .22.001.316.006.103.005.241-.039.377.288.14.336.478 1.164.52 1.25.042.086.07.186.012.302-.058.116-.088.188-.174.29-.086.102-.18.228-.258.306-.086.086-.176.18-.076.352.1.172.443.731.95 1.183.654.582 1.205.763 1.378.849.172.086.273.072.375-.044.102-.116.438-.51.555-.685.117-.174.234-.146.393-.087.16.058 1.01.477 1.184.564.174.087.29.13.333.203.043.073.043.423-.097.817zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.174L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.154c-1.637 0-3.155-.494-4.42-1.341l-.317-.212-2.969.779.792-2.894-.233-.37A8.125 8.125 0 013.846 12C3.846 7.503 7.503 3.846 12 3.846S20.154 7.503 20.154 12 16.497 20.154 12 20.154z" />
+            </svg>
+          </a>
 
           {/* Language Selector Pill Capsule styled exactly as image.png */}
           <div className="flex items-center bg-stone-100/90 border border-stone-200 rounded-full p-1 text-[11px] font-bold">
@@ -248,7 +244,6 @@ export const HeaderPrestige: React.FC<HeaderPrestigeProps> = ({
                       : "text-stone-800 hover:bg-stone-100"
                   }`}
                 >
-                  {item.hasSparkle && <Sparkles className="w-4 h-4 text-[#C05621]" />}
                   <span>{displayLabel}</span>
                 </button>
               );
@@ -256,15 +251,18 @@ export const HeaderPrestige: React.FC<HeaderPrestigeProps> = ({
           </div>
 
           <div className="pt-4 border-t border-stone-200 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setActiveTab("member");
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-2.5 rounded-full border border-stone-900 text-stone-900 font-extrabold text-xs uppercase tracking-wider hover:bg-black hover:text-white transition-colors text-center"
+            <a
+              href="https://wa.me/212661000000?text=Bonjour%20Staystar,%20je%20souhaite%20des%20informations%20sur%20vos%20appartements."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-2.5 rounded-full bg-[#25D366] text-white font-extrabold text-xs uppercase tracking-wider hover:bg-[#20ba59] transition-colors flex items-center justify-center gap-2 shadow-xs"
             >
-              {language === "fr" ? "ESPACE CLIENT" : language === "en" ? "CLIENT PORTAL" : "فضاء الزبناء"}
-            </button>
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.002.576 1.737.818 2.806.818 3.181 0 5.767-2.587 5.767-5.766.001-3.182-2.585-5.769-5.767-5.77zm3.364 8.163c-.14.394-.712.727-1.077.777-.365.05-.838.077-2.482-.603-1.644-.68-2.693-2.355-2.774-2.464-.08-.11-.664-.882-.664-1.682 0-.8.419-1.196.568-1.355.15-.16.326-.2.435-.2.11 0 .22.001.316.006.103.005.241-.039.377.288.14.336.478 1.164.52 1.25.042.086.07.186.012.302-.058.116-.088.188-.174.29-.086.102-.18.228-.258.306-.086.086-.176.18-.076.352.1.172.443.731.95 1.183.654.582 1.205.763 1.378.849.172.086.273.072.375-.044.102-.116.438-.51.555-.685.117-.174.234-.146.393-.087.16.058 1.01.477 1.184.564.174.087.29.13.333.203.043.073.043.423-.097.817zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.174L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.154c-1.637 0-3.155-.494-4.42-1.341l-.317-.212-2.969.779.792-2.894-.233-.37A8.125 8.125 0 013.846 12C3.846 7.503 7.503 3.846 12 3.846S20.154 7.503 20.154 12 16.497 20.154 12 20.154z" />
+              </svg>
+              <span>WhatsApp Direct</span>
+            </a>
 
             <button
               onClick={() => {

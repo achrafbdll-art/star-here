@@ -11,6 +11,7 @@ import { STATIC_PROPERTIES } from "./propertiesData";
 import { HeaderPrestige } from "./components/HeaderPrestige";
 import { HeroSahamSearch } from "./components/HeroSahamSearch";
 import { FeaturedReferencesShowcase } from "./components/FeaturedReferencesShowcase";
+import { HowItWorksPhotoSection } from "./components/HowItWorksPhotoSection";
 import { AboutWhyUsSection } from "./components/AboutWhyUsSection";
 import { PolesSection } from "./components/PolesSection";
 import { PropertyCard } from "./components/PropertyCard";
@@ -286,6 +287,16 @@ export default function App() {
               language={language}
               onSelectProperty={(p) => setSelectedProperty(p)}
               onNavigateTab={(tab) => setActiveTab(tab)}
+            />
+
+            {/* 4. Rubrique Style Photo: COMMENT ÇA SE PASSE ? (5 Cartes Noires) */}
+            <HowItWorksPhotoSection
+              language={language}
+              onExploreProperties={() => {
+                setSearchTransaction("all");
+                setActiveTab("properties");
+              }}
+              onOpenScheduleVisit={() => setScheduleVisitProperty(null)}
             />
 
             {/* Marquee Featured Properties Grid */}
@@ -759,7 +770,17 @@ export default function App() {
 
         {/* ======================= TAB: HOW IT WORKS & DIGITAL CHECK-IN (PRESERVED) ======================= */}
         {(activeTab === "how-it-works" || activeTab === "member") && (
-          <div className="py-12 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="space-y-12">
+            <HowItWorksPhotoSection
+              language={language}
+              onExploreProperties={() => {
+                setSearchTransaction("all");
+                setActiveTab("properties");
+              }}
+              onOpenScheduleVisit={() => setScheduleVisitProperty(null)}
+            />
+
+            <div className="py-12 sm:py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
             <div className="text-center max-w-2xl mx-auto">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B38B4D] block mb-1">
@@ -815,6 +836,7 @@ export default function App() {
               </button>
             </div>
 
+            </div>
           </div>
         )}
 

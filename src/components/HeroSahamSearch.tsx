@@ -70,11 +70,11 @@ export const HeroSahamSearch: React.FC<HeroSahamSearchProps> = ({
   const [terraceOnly, setTerraceOnly] = useState<boolean>(false);
   const [searchDistrict, setSearchDistrict] = useState<string>("");
 
-  // Auto-scroll through Morocco luxury real estate hero photos every 6.5s
+  // Auto-scroll through Morocco luxury real estate hero photos (soft balanced 4.5s rhythm)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6500);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -103,36 +103,39 @@ export const HeroSahamSearch: React.FC<HeroSahamSearchProps> = ({
   return (
     <section className="relative min-h-[640px] lg:min-h-[720px] flex flex-col justify-start items-center text-white overflow-hidden bg-stone-950 group/hero">
       
-      {/* ================= HIGH-QUALITY MOROCCO REAL ESTATE SCROLLING BACKGROUND ================= */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <AnimatePresence initial={false} mode="wait">
-          <motion.div
-            key={HERO_SLIDES[currentSlideIndex].id}
-            initial={{ opacity: 0, scale: 1.08 }}
-            animate={{ opacity: 1, scale: 1.02 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-            className="absolute inset-0"
-          >
-            <img
-              src={HERO_SLIDES[currentSlideIndex].url}
-              alt={HERO_SLIDES[currentSlideIndex].title}
-              className="w-full h-full object-cover object-center"
-              referrerPolicy="no-referrer"
-            />
-          </motion.div>
-        </AnimatePresence>
+      {/* ================= HIGH-QUALITY MOROCCO REAL ESTATE SCROLLING BACKGROUND (ZERO NOIR) ================= */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+        {HERO_SLIDES.map((slide, index) => {
+          const isActive = index === currentSlideIndex;
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={slide.url}
+                alt={slide.title}
+                className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out ${
+                  isActive ? "scale-100" : "scale-104"
+                }`}
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          );
+        })}
 
-        {/* Cinematic dark luxury gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-black/55 via-black/50 to-black/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-black/40" />
+        {/* Lighter, softer overlay so the luxury apartment photos are vibrant, bright and clearly visible */}
+        <div className="absolute inset-0 bg-black/28" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-transparent to-black/35" />
       </div>
 
       {/* Manual Left/Right Slide Controls */}
       <button
         onClick={prevSlide}
         aria-label="Photo précédente"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 text-white/80 hover:text-white border border-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/hero:opacity-100 transition-all duration-200 cursor-pointer shadow-lg hover:scale-105"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/50 hover:bg-black/80 text-white/90 hover:text-white border border-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/hero:opacity-100 transition-all duration-200 cursor-pointer shadow-xl hover:scale-105"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
@@ -140,13 +143,13 @@ export const HeroSahamSearch: React.FC<HeroSahamSearchProps> = ({
       <button
         onClick={nextSlide}
         aria-label="Photo suivante"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 text-white/80 hover:text-white border border-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/hero:opacity-100 transition-all duration-200 cursor-pointer shadow-lg hover:scale-105"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/50 hover:bg-black/80 text-white/90 hover:text-white border border-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover/hero:opacity-100 transition-all duration-200 cursor-pointer shadow-xl hover:scale-105"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Bottom Corner Floating Photo Badge & Dots */}
-      <div className="absolute bottom-5 right-6 z-20 hidden sm:flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-xs text-white shadow-xl pointer-events-auto">
+      <div className="absolute bottom-5 right-6 z-30 hidden sm:flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs text-white shadow-xl pointer-events-auto">
         <div className="flex items-center gap-1.5 text-stone-300">
           <Camera className="w-3.5 h-3.5 text-[#FACCD1]" />
           <span className="font-semibold text-[11px] tracking-wide text-white">
@@ -169,10 +172,10 @@ export const HeroSahamSearch: React.FC<HeroSahamSearchProps> = ({
         </div>
       </div>
 
-      <div className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 text-center flex flex-col items-center">
+      <div className="relative z-20 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 text-center flex flex-col items-center">
         
         {/* Top Moroccan Cities Pill Capsule (100% identical to image.png) */}
-        <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-white/25 bg-black/40 backdrop-blur-md mb-5 sm:mb-6 shadow-lg">
+        <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-white/30 bg-black/60 backdrop-blur-md mb-5 sm:mb-6 shadow-xl">
           <span className="text-[10px] font-black text-white bg-white/20 px-2 py-0.5 rounded-full tracking-wider uppercase">
             MA
           </span>
@@ -182,22 +185,22 @@ export const HeroSahamSearch: React.FC<HeroSahamSearchProps> = ({
         </div>
 
         {/* Main Giant Headline: WE DO THE ROOM. (Aligned strictly on a single line) */}
-        <h1 className="font-sans font-black tracking-tight text-[clamp(1.85rem,6.5vw,5.5rem)] text-white uppercase leading-none drop-shadow-md select-none whitespace-nowrap max-w-full">
+        <h1 className="font-sans font-black tracking-tight text-[clamp(1.85rem,6.5vw,5.5rem)] text-white uppercase leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] select-none whitespace-nowrap max-w-full">
           WE DO THE ROOM.
         </h1>
 
         {/* Serif Italic Sub-Headline: You do the city. (Aligned on a single line) */}
-        <div className="font-serif italic font-normal text-[clamp(1.6rem,5.5vw,4.75rem)] text-[#FACCD1] tracking-normal -mt-1 sm:-mt-2 drop-shadow-md select-none whitespace-nowrap max-w-full">
+        <div className="font-serif italic font-normal text-[clamp(1.6rem,5.5vw,4.75rem)] text-[#FACCD1] tracking-normal -mt-1 sm:-mt-2 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] select-none whitespace-nowrap max-w-full">
           You do the city.
         </div>
 
         {/* Description Text (100% verbatim from image.png) */}
-        <p className="mt-3.5 sm:mt-4 text-sm sm:text-base lg:text-lg text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-xs">
+        <p className="mt-3.5 sm:mt-4 text-sm sm:text-base lg:text-lg text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           L'aparthôtel de nouvelle génération : autonomie numérique, confort premium, et charme marocain authentique.
         </p>
 
         {/* White Pill-Shaped Search Console (matching image.png) */}
-        <div className="w-full mt-8 sm:mt-11 max-w-5xl bg-white rounded-3xl sm:rounded-full shadow-2xl p-3 sm:p-3.5 text-stone-900 border border-stone-200">
+        <div className="w-full mt-8 sm:mt-11 max-w-5xl bg-white rounded-3xl sm:rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.4)] p-3 sm:p-3.5 text-stone-900 border border-stone-200">
           
           <form onSubmit={handleApply} className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 text-left">
             

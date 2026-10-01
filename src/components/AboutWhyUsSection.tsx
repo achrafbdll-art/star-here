@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, Sparkles, Compass } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Language } from "../types";
 import { CasablancaSkylineBg } from "./CasablancaSkylineBg";
@@ -16,63 +16,24 @@ export const AboutWhyUsSection: React.FC<AboutWhyUsSectionProps> = ({
   onOpenScheduleVisit,
 }) => {
   const [showStoryModal, setShowStoryModal] = useState<boolean>(false);
-  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5; // -0.5 to 0.5
-    setMousePos({ x, y });
-  };
-
-  const handleMouseLeave = () => {
-    setMousePos({ x: 0, y: 0 });
-  };
 
   return (
     <section
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       className="relative bg-white py-16 sm:py-24 border-b border-stone-200/80 overflow-hidden"
-      style={{ perspective: 1200 }}
     >
       
-      {/* ================= 3D CONTINUOUS SCROLLING CASABLANCA SKYLINE BACKGROUND ================= */}
+      {/* ================= ARCHITECTURAL CASABLANCA SKYLINE DÉFILANT (PANORAMA CONTINU, COUCHE UNIQUE) ================= */}
       <div
-        className="absolute inset-x-0 bottom-0 pointer-events-none select-none flex items-end justify-start overflow-hidden h-[300px] sm:h-[400px] lg:h-[460px] opacity-90 [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_100%)]"
-        style={{
-          transformStyle: "preserve-3d",
-          transform: `rotateY(${mousePos.x * 6}deg) rotateX(${-mousePos.y * 4}deg) translateZ(10px)`,
-          transition: "transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1)",
-        }}
+        className="absolute inset-x-0 bottom-0 pointer-events-none select-none flex items-end justify-start overflow-hidden h-[300px] sm:h-[400px] lg:h-[460px] opacity-75 [mask-image:linear-gradient(to_bottom,transparent_0%,black_12%,black_100%)] z-0"
       >
-        {/* Layer 1: Distant 3D Background Skyline (Slow Continuous Drift) */}
         <motion.div
           animate={{ x: [0, -1440] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 80 }}
-          className="absolute inset-x-0 bottom-3 flex items-end w-[2880px] text-stone-300/80 scale-[0.95] origin-bottom will-change-transform"
-          style={{ transform: "translateZ(-30px)" }}
-        >
-          <CasablancaSkylineBg className="w-[1440px] shrink-0 h-[280px] sm:h-[370px] lg:h-[420px]" />
-          <CasablancaSkylineBg className="w-[1440px] shrink-0 h-[280px] sm:h-[370px] lg:h-[420px]" />
-        </motion.div>
-
-        {/* Layer 2: Main Foreground 3D Skyline (Faithful to photo drawing, Continuous Drift) */}
-        <motion.div
-          animate={{ x: [0, -1440] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
-          className="relative flex items-end w-[2880px] text-stone-850 will-change-transform"
-          style={{ transform: "translateZ(15px)" }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 65 }}
+          className="flex items-end w-[2880px] shrink-0 text-stone-600 will-change-transform"
         >
           <CasablancaSkylineBg className="w-[1440px] shrink-0 h-[300px] sm:h-[400px] lg:h-[460px]" />
           <CasablancaSkylineBg className="w-[1440px] shrink-0 h-[300px] sm:h-[400px] lg:h-[460px]" />
         </motion.div>
-      </div>
-
-      {/* Floating 3D Indicator Badge in bottom-left */}
-      <div className="absolute bottom-3 left-4 z-20 hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-stone-200/80 text-[10px] font-bold text-stone-600 shadow-xs pointer-events-none select-none">
-        <Compass className="w-3.5 h-3.5 text-[#0066FF] animate-spin" style={{ animationDuration: "12s" }} />
-        <span>Casablanca 3D Panorama Défilant</span>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
