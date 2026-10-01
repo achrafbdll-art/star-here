@@ -18,13 +18,38 @@ export interface Review {
   comment: Translation;
 }
 
+export interface POI {
+  name: string;
+  type: "school" | "transport" | "shopping" | "leisure" | "beach" | "health";
+  distance: string;
+}
+
 export interface Property {
   id: string;
+  referenceCode?: string;
   name: Translation;
   city: string;
   neighborhood: string;
   description: Translation;
   pricePerNight: number;
+  priceDH: number;
+  priceUnit?: "total" | "mois" | "nuit";
+  transactionType: "vente" | "location" | "projet-neuf";
+  propertyType: "appartement" | "villa" | "penthouse" | "duplex" | "riad" | "studio";
+  surface: number; // m²
+  bedrooms: number;
+  bathrooms: number;
+  parking: boolean;
+  pool: boolean;
+  terrace: boolean;
+  elevator: boolean;
+  furnished: boolean;
+  isNew: boolean;
+  isFeatured?: boolean;
+  deliveryDate?: string;
+  coordinates?: { lat: number; lng: number };
+  pois?: POI[];
+  whySpecial?: TranslationList;
   rating: number;
   amenities: string[];
   seoKeywords: string[];
